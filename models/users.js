@@ -1,21 +1,44 @@
 var mongoose = require( 'mongoose' );
 
 
-var locaisSchema = new mongoose.Schema({
-	"Zona" : {type: Number},
-	"Nome Munic" : {type: String},
-	"Bairro" : {type: String},
-	"Endereco" : {type: String},
-	"CEP" : {type: Number},
-	"Num Local" : {type: String},
-	"Nome Local" : {type: String},
-	"Secao" : {type: Number},
-	"Aptos Secao SUM" : {type: Number},
-	"Aptos Local SUM" : {type: Number}
+var concursosSchema = new mongoose.Schema({
+	"data": {type: Date},
+	"nome": {type: String},
+	"status": {type: String}
+})
+
+var rpaSchema = new mongoose.Schema({
+	"cpf": {type: String, unique: true, required: true},
+	"pispasep": {type: String, unique: true, required: true},
+	"nome": {type: String},
+	"nomeMae": {type: String},
+	"nascimento": {type: Date},
+	"idt": {type: String},
+	"emissor": {type: String},
+	"ufEmissor": {type: String},
+	"dataEmissao": {type: Date},
+	"sexo": {type: Boolean},
+	"estadoCivil": {type: String},
+	"tipoLogradouro": {type: String},
+	"endereco": {type: String},
+	"numero": {type: String},
+	"complemento": {type: String},
+	"bairro": {type: String},
+	"cep": {type: String},
+	"uf": {type: String},
+	"municipio": {type: String},
+	"contato": {type: String},
+	"email": {type: String},
+	"concursos": [concursosSchema]
 });
 
-mongoose.model('Locais', locaisSchema, 'locais');
+var nomesConcursosSchema = new mongoose.Schema({
+	"nome": {type: String},
+	"data": {type: Date}
+})
+
+mongoose.model('Concurso', concursosSchema);
+mongoose.model('Rpa', rpaSchema, 'rpa');
+mongoose.model('nomesConcursos', nomesConcursosSchema, 'nomesConcursos');
 
 
-	
-	
