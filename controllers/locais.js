@@ -24,6 +24,7 @@ var nomesConcursos = mongoose.model('nomesConcursos');
 		var rpa = new Rpa();
 		
 	rpa.cpf = req.body.cpf; 
+	rpa.dataEscalado = ''; 
 	rpa.pispasep = req.body.pispasep;
 	rpa.nome = req.body.nome;
 	rpa.nomeMae = req.body.nomeMae;
