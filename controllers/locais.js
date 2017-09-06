@@ -127,7 +127,7 @@ var nomesConcursos = mongoose.model('nomesConcursos');
 	}
 
 
-	module.exports.atualizarContato = function(req, res){
+	module.exports.atualizarEscalado = function(req, res){
 
 		
 		if(!req.body.cpf){
@@ -154,7 +154,7 @@ var nomesConcursos = mongoose.model('nomesConcursos');
 			}else{
 
 
-				data[0].contato = req.body.contato;
+				data[0].dataEscalado = req.body.dataEscalado;
 
 				data[0].save(function(err, data){
 					if(err){
